@@ -43,7 +43,7 @@ export class AppComponent {
     .subscribe(res => {
       alert(res);
       this.getCars()
-    })
+    });
     console.log(this.newCarForm.value);
 
   }

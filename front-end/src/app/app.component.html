@@ -1,0 +1,54 @@
+<div class="container">
+  <div style="margin-top: 100px;">
+    <ng-container *ngFor="let car of cars">
+      <div class="products-i vipped salon">
+        <a
+          class="products-i__link"
+          target="_blank"
+          href="/autos/7565754-hyundai-accent"
+        ></a
+        ><a
+          class="js-bookmark-item-7565754"
+          data-remote="true"
+          rel="nofollow"
+          data-method="post"
+          href="/autos/7565754-hyundai-accent/bookmarks"
+          ><div class="bookmarking"></div></a
+        ><a
+          class="hide js-unbookmark-item-7565754"
+          data-remote="true"
+          rel="nofollow"
+          data-method="delete"
+          href="/autos/7565754-hyundai-accent/bookmarks"
+          ><div class="bookmarking added"></div
+        ></a>
+        <div class="products-i__top">
+          <img
+            alt="Hyundai Accent"
+            loading="lazy"
+            src="https://turbo.azstatic.com/uploads/f460x343/2023%2F07%2F18%2F17%2F45%2F50%2Feef2feca-af57-4113-8afd-ab1391eabcf9%2F82012_qoDuNnPmTCB88XddwIeJzw.jpg"
+          />
+          <div
+            class="products-i__label-container tz-d-flex tz-gap-5 tz-wrap-wrap"
+          >
+            <div class="products-i__label products-i__label--salon">Salon</div>
+          </div>
+          <div class="products-i__paid"><span class="vipped-icon"></span></div>
+          <div class="products-i__info"></div>
+        </div>
+        <div class="products-i__bottom">
+          <div class="products-i__price products-i__bottom-text">
+            <div class="product-price">{{car.price}}</div>
+          </div>
+          <div class="products-i__name products-i__bottom-text">
+            {{car.maker}}
+          </div>
+          <div class="products-i__attributes products-i__bottom-text">
+            {{car.year}}, {{car.engineVolume}}, {{car.mileage}} 
+          </div>
+          <div class="products-i__datetime">Bakı, dünən 10:39</div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

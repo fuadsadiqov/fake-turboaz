@@ -24,6 +24,15 @@ app.get('/api/cars/getCars', (request, response) => {
     });
 })
 
+// app.post('/api/cars/addCar', multer().none(), (request, response) => {
+//     database.collection('cars').count({}, function(error, numOfDocs) {
+//         database.collection("cars").insertOne({
+//             id: (numOfDocs+1).toString(),
+//             category: request.body.newNotes.category
+//         });
+//         response.json("Added Successsfully")
+//     });
+// })
 app.post('/api/cars/addCar', (request, response) => {
     database.collection('cars').countDocuments({}, function(error, numOfDocs) {
       if (error) {

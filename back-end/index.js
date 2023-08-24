@@ -2,9 +2,11 @@ const Express = require("express");
 const MongoClient = require("mongodb").MongoClient;
 const cors = require("cors");
 const multer = require("multer");
+const upload = multer({dest: 'uploads/'});
 
 let app = Express();
 app.use(cors());
+app.use(Express.json());
 
 let CONNECTION_STRING = "mongodb+srv://fuadsadiqov:hwQsixC9vyZP8CUp@cluster0.mrq5w9u.mongodb.net/?retryWrites=true&w=majority"
 
@@ -24,19 +26,9 @@ app.get('/api/cars/getCars', (request, response) => {
     });
 })
 
-// app.post('/api/cars/addCar', multer().none(), (request, response) => {
-//     database.collection('cars').count({}, function(error, numOfDocs) {
-//         database.collection("cars").insertOne({
-//             id: (numOfDocs+1).toString(),
-//             category: request.body.newNotes.category
-//         });
-//         response.json("Added Successsfully")
-//     });
-// })
-
-app.post('/api/cars/addCar', (request, response) => {
+app.post('/api/cars/addCar', upload.single('image'), (request, response) => {
     database.collection('cars').count({}, function(error, numOfDocs) {      
-      database.collection('cars').insertOne({
+      const carData = {
         id: (numOfDocs+1).toString(),
         category: request.body.category,
         attributes: request.body.attributes,
@@ -54,12 +46,13 @@ app.post('/api/cars/addCar', (request, response) => {
         seller: request.body.seller,
         engineVolume: request.body.engineVolume,
         transmission: request.body.transmission,
-      }, function(error, result) {
+      }
+      database.collection('cars').insertOne(carData, function(error, result) {
         if (error) {
           console.error('Error inserting car:', error);
           return response.status(500).json({ error: 'Internal Server Error' });
         }
-        response.status(201).json(`Added car: ${request.body}`);
+        response.status(201).json(`Cars added to database successfully`);
       });
     });
 });

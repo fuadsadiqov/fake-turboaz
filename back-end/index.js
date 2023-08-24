@@ -30,6 +30,7 @@ app.post('/api/cars/addCar', upload.single('image'), (request, response) => {
     database.collection('cars').count({}, function(error, numOfDocs) {      
       const carData = {
         id: (numOfDocs+1).toString(),
+        image: request.body.image,
         category: request.body.category,
         attributes: request.body.attributes,
         year: request.body.year,

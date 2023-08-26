@@ -9,6 +9,8 @@ import { CarInterface } from 'src/app/core/car.interface';
 export class CarService {
   private baseUrl: string = "http://localhost:5038/api/cars/"
 
+  private bookmarkedCar: CarInterface | null = null;
+
   constructor(private http: HttpClient) { }
 
   getCars(): any{
@@ -21,5 +23,13 @@ export class CarService {
 
   deleteCar(id: any){
     return this.http.delete(this.baseUrl + 'deleteCar', id)
+  }
+
+  setBookmark(car: CarInterface): void {
+    this.bookmarkedCar = car;
+  }
+
+  getBookmark(): CarInterface | null {
+    return this.bookmarkedCar;
   }
 }

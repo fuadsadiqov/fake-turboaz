@@ -1,28 +1,29 @@
-<div class="container">
+<div class="container bg-nav-bg-gray">
    <div class="flex gap-4 flex-wrap">
     <ng-container *ngFor="let car of cars">
-      <div class="w-[22rem] rounded-lg">
-       <a class="" data-remote="true" rel="nofollow" data-method="post" href="/autos/7565754-hyundai-accent/bookmarks" ><div class="bookmarking"></div></a><a class="" data-remote="true" rel="nofollow" data-method="delete" href="/autos/7565754-hyundai-accent/bookmarks" ><div class="bookmarking added"></div
-        ></a>
-        <div class="max-h-[17rem] h-100 w-100">
-          <img class="w-100 h-100 object-cover" alt="{{car.model}}" src="../../../assets/img/60332_xImEOrpFk32oou4MiEh0mA.jpg"/>
-          <div class="">
-            <div class="" (click)="deleteCar(car.id)">Delete</div>
+      <div class="w-[22rem] h-[100%] mt-6 rounded-lg shadow-md leading-[1.38] bg-white">
+       <a class="" data-remote="true" rel="nofollow" data-method="delete" href="/autos/7565754-hyundai-accent/bookmarks" >
+        <div class="bookmarking added"></div></a>
+        <div class="h-[17rem] w-[100%] relative">
+          <img src="../../../assets/img/icons/heart.svg" (click)="setBookmark(car)" class="absolute top-2 w-[3.3rem] right-2" alt="heart icon">
+          <img class="w-[100%] h-[100%] object-cover rounded-t-lg" [src]="'../../../assets/img/' + car.image" alt="{{car.maker}}">
+          <div>
+            <div class="absolute bottom-2 left-2 bg-primary-blue text-white px-2 py-[0.1rem] rounded-md">Salon</div>
           </div>
           <div class=""><span class=""></span></div>
           <div class=""></div>
         </div>
-        <div class="">
+        <div class="px-4 py-2">
           <div class="">
-            <div class="">{{car.price}}</div>
+            <div class="text-[1.8rem] font-bold">{{car.price}}</div>
           </div>
-          <div class="">
+          <div class="text-[1.5rem] font-medium">
             {{car.maker}}
           </div>
-          <div class="">
-            {{car.year}}, {{car.engineVolume}}L, {{car.mileage}} km 
+          <div class="text-[1.5rem]">
+            {{car.year}}, {{car.engineVolume}}, {{car.mileage}}
           </div>
-          <div class="">Bakı, dünən 10:39</div>
+          <div class="text-[1.4rem] text-nav-text-gray font-medium">Bakı, dünən 10:39</div>
         </div>
       </div>
     </ng-container>

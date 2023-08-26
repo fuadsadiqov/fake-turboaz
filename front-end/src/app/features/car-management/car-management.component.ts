@@ -23,6 +23,10 @@ export class CarManagementComponent {
   
   deleteCar(id: string){
     this.carService.deleteCar(id)
-    .subscribe(res => this.carService.getCars())
+    .subscribe(_ => this.carService.getCars())
+  }
+
+  setBookmark(car: CarInterface){
+    this.carService.setBookmark(car) 
   }
 }

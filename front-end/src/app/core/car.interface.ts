@@ -16,6 +16,6 @@ export interface CarInterface{
     seller: string;
     engineVolume: string;
     transmission: string;
-    imagePath: string;
+    image: string;
     _id: string;
 }

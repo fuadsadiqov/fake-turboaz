@@ -9,7 +9,8 @@ module.exports = {
       'primary-green': '#7ed321;',
       'white': '#FFFFFF',
       'nav-bg-gray': '#f6f7fa',
-      'nav-text-gray': '#8d94ad'
+      'nav-text-gray': '#8d94ad',
+      'primary-blue': '#4264fd'
     },
     extend: {},
   },

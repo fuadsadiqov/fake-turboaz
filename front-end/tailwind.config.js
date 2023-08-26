@@ -7,7 +7,9 @@ module.exports = {
     colors: {
       'primary-red': '#ca1016',
       'primary-green': '#7ed321;',
-      'white': '#FFFFFF'
+      'white': '#FFFFFF',
+      'nav-bg-gray': '#f6f7fa',
+      'nav-text-gray': '#8d94ad'
     },
     extend: {},
   },

@@ -9,8 +9,10 @@ import { CarService } from 'src/app/shared/services/car.service';
   styleUrls: ['./car-form.component.scss']
 })
 export class CarFormComponent {
+  constructor(private fb: FormBuilder, private carService: CarService){}
+
+  public selectedImage: File | null | any = null;
   public newCarForm: FormGroup = this.fb.group({
-    image: [''],
     attributes: [''],
     year: [''],
     category: [''],
@@ -28,7 +30,20 @@ export class CarFormComponent {
     engineVolume: [''],
     transmission: [''],
   })
-  constructor(private fb: FormBuilder, private carService: CarService){}
+
+  onImageSelected(event: any){
+    const file = (event.target).files[0];
+    const allowedMimeTypes = ["image/png", "image/jpeg", "image/jpg"];
+    this.newCarForm.patchValue({image: file});
+    if (file && allowedMimeTypes.includes(file.type)) {
+      const reader = new FileReader();
+      reader.onload = () => {
+          this.selectedImage = reader.result;
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
   addCar() {
     const formData = new FormData();
     const formControls = this.newCarForm.controls;
@@ -38,14 +53,17 @@ export class CarFormComponent {
         formData.append(controlName, formControls[controlName]?.value);
       }
     }
-    const imageControl = this.newCarForm.get('image');
-    if (imageControl && imageControl.value) {
-      formData.append('image', imageControl.value);
-    }
+    formData.append('image', this.selectedImage)
+    // console.log(this.selectedImage);
+    
+    // if(this.selectedImage){
+    //   formData.append('image', this.selectedImage);
+    // }
 
     this.carService.addCar(formData).subscribe(
       (res) => {
         alert(res);
+        this.selectedImage = null;
         this.carService.getCars(); // You might want to update your car list after adding
       },
       (error) => {

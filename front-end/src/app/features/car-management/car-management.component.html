@@ -1,12 +1,12 @@
 <div class="container bg-nav-bg-gray">
    <div class="flex gap-4 flex-wrap">
     <ng-container *ngFor="let car of cars">
-      <div class="w-[22rem] h-[100%] mt-6 rounded-lg shadow-md leading-[1.38] bg-white">
+      <div class="w-[22rem] h-[100%] mt-6 rounded-lg hover:shadow-lg shadow-md leading-[1.38] bg-white">
        <a class="" data-remote="true" rel="nofollow" data-method="delete" href="/autos/7565754-hyundai-accent/bookmarks" >
         <div class="bookmarking added"></div></a>
         <div class="h-[17rem] w-[100%] relative">
           <img src="../../../assets/img/icons/heart.svg" (click)="setBookmark(car)" class="absolute top-2 w-[3.3rem] right-2" alt="heart icon">
-          <img class="w-[100%] h-[100%] object-cover rounded-t-lg" [src]="'../../../assets/img/' + car.image" alt="{{car.maker}}">
+          <img class="w-[100%] h-[100%] object-cover rounded-t-lg" src="{{car.image}}" alt="{{car.maker}}">
           <div>
             <div class="absolute bottom-2 left-2 bg-primary-blue text-white px-2 py-[0.1rem] rounded-md">Salon</div>
           </div>

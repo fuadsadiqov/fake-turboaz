@@ -29,4 +29,5 @@ export class CarManagementComponent {
   setBookmark(car: CarInterface){
     this.carService.setBookmark(car) 
   }
+
 }

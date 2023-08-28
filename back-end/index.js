@@ -16,6 +16,10 @@ let database;
 
 app.listen(5038, () => {
     MongoClient.connect(CONNECTION_STRING, (error, client) => {
+        if (error) {
+            console.log("Mongo DB Connection Error:", error);
+            return;
+        }
         database = client.db(DATABASENAME)
         console.log("Mongo DB Connection Successfull");
     });

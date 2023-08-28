@@ -21,6 +21,4 @@ const ItemSchema = new mongoose.Schema({
   imagePath: String,
 });
 
-const Item = mongoose.model('Item', ItemSchema);
-
 module.exports = mongoose.model('Item', ItemSchema);

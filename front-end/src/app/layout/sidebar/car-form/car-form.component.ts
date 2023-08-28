@@ -57,7 +57,7 @@ export class CarFormComponent {
     // console.log(this.selectedImage);
     
     // if(this.selectedImage){
-    //   formData.append('image', this.selectedImage);d
+    //   formData.append('image', this.selectedImage);
     // }
 
     this.carService.addCar(formData).subscribe(

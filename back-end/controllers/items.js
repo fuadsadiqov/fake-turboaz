@@ -5,22 +5,22 @@ exports.getItems = async (req, res) => {
   res.status(200).json({ profiles });
 };
 exports.postItem = async (req, res) => {
-  const { category } = request.body.category;
-  const { attributes } = request.body.attributes;
-  const { year } = request.body.year;
-  const { maker } = request.body.maker;
-  const { model } = request.body.model;
-  const { color } = request.body.color;
-  const { power } = request.body.power;
-  const { petroleum } = request.body.petroleum;
-  const { mileage } = request.body.mileage;
-  const { gear } = request.body.gear;
-  const { newCar } = request.body.newCar;
-  const { price } = request.body.price;
-  const { additional } = request.body.additional;
-  const { seller } = request.body.seller;
-  const { engineVolume } = request.body.engineVolume;
-  const { transmission } = request.body.transmission;
+  const { category } = req.body.category;
+  const { attributes } = req.body.attributes;
+  const { year } = req.body.year;
+  const { maker } = req.body.maker;
+  const { model } = req.body.model;
+  const { color } = req.body.color;
+  const { power } = req.body.power;
+  const { petroleum } = req.body.petroleum;
+  const { mileage } = req.body.mileage;
+  const { gear } = req.body.gear;
+  const { newCar } = req.body.newCar;
+  const { price } = req.body.price;
+  const { additional } = req.body.additional;
+  const { seller } = req.body.seller;
+  const { engineVolume } = req.body.engineVolume;
+  const { transmission } = req.body.transmission;
   const { imagePath } = "http://localhost:5038/uploads/" + req.file.filename;
 
   const item = new Item({
